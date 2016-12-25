@@ -3,8 +3,11 @@ window.Console = {
     current: -1,
 
     slides_list_el: "#slides-list",
-    current_slide_el: "#slide-current canvas",
-    next_slide_el: "#slide-next canvas",
+    slide_current_el: "#slide-current",
+    slide_current_canvas: "#slide-current canvas",
+    slide_next_el: "#slide-next canvas",
+    slide_next_canvas: "#slide-next canvas",
+    slide_arrow_el: "#slide-arrow",
     slide_preview_el: ".slide-preview",
 
     slide_preview_class: "slide-preview",
@@ -47,8 +50,17 @@ window.Console = {
     },
 
     render: function() {
-        PDF.render(this.current, q(this.current_slide_el));
-        PDF.render(this.current + 1, q(this.next_slide_el));
+        PDF.render(this.current, q(this.slide_current_canvas));
+
+        if (this.current === PDF.total_pages()) {
+            q(this.slide_arrow_el).classList.add("vis-hidden");
+            q(this.slide_next_el).classList.add("vis-hidden");
+        } else {
+            q(this.slide_arrow_el).classList.remove("vis-hidden");
+            q(this.slide_next_el).classList.remove("vis-hidden");
+
+            PDF.render(this.current + 1, q(this.slide_next_canvas));
+        }
     },
 
     to: function(to) {

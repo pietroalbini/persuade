@@ -22,6 +22,10 @@ canvas {
     display: none;
 }
 
+.vis-hidden {
+    visibility: hidden;
+}
+
 .centered {
     position: absolute;
     top: 50%;
@@ -107,7 +111,7 @@ input {
     display: flex;
 }
 
-.console-layout .console-body .console-top .deck .slide {
+.console-layout .console-body .console-top .deck #slide-current {
     flex: 0 1 100%;
     align-self: center;
 }
@@ -118,6 +122,11 @@ input {
 
     font-size: 2em;
     padding: 0 1em;
+}
+
+.console-layout .console-body .console-top .deck #slide-next {
+    flex: 0 1 60%;
+    align-self: center;
 }
 
 .slide-preview {
