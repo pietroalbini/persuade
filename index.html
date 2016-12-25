@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Persuade</title>
+
+        <link rel="stylesheet" href="assets/css/snowflake.css">
+        <link rel="stylesheet" href="assets/css/app.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.css">
+    </head>
+    <body>
+        <div class="page" id="loading">
+            <div class="centered">
+                <h1><i class="fa fa-cog fa-spin"></i></h1>
+            </div>
+        </div>
+
+        <div class="page hidden" id="too-small">
+            <div class="centered">
+                <h1>
+                    <i class="fa fa-arrows-alt"></i>
+                    Screen too small
+                </h1>
+                <p>
+                    In order to properly use Persuade you need to have a bigger
+                    screen. Sorry!
+                </p>
+            </div>
+        </div>
+        <div class="page hidden" id="intro">
+            <div class="centered">
+                <h1>Persuade</h1>
+                <div class="container">
+                    <form id="pdf-url-form">
+                        <input type="text" id="pdf-url" autofocus
+                               placeholder="Enter your slides' URL">
+                        <button class="button" type="submit">Let's go!</button>
+                        <a href="#about" class="goto button">What's this?</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="page hidden" id="about">
+            <div class="centered">
+                <h1>About Persuade</h1>
+                <div class="container">
+                    <p>
+                        Persuade is a lightweight, simple slides deck you can
+                        use while giving talks. It allows you to have the same
+                        experience office suites provides, but with just a PDF
+                        file.
+                    </p>
+                    <p>
+                        All you need to do is entering the URL to the PDF file
+                        in the text input on the home page! Persuade will take
+                        care of the rest.
+                    </p>
+                    <div>
+                        <a href=":back" class="goto button">Go back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page hidden" id="error">
+            <div class="centered">
+                <h1>Can't load your slides</h1>
+                <div class="container">
+                    <p>
+                        Sorry, there was a problem with your slides. Make sure
+                        you're online, the URL is correct, and the server
+                        allows cross-origin requests.
+                    </p>
+                    <a href=":back" class="goto button">Go back</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="page hidden" id="console">
+            <div class="console-container">
+                <div class="deck">
+                    <div class="slide" id="slide-current">
+                        <canvas></canvas>
+                    </div>
+                    <div id="slide-arrow">
+                        <i class="fa fa-arrow-right"></i>
+                    </div>
+                    <div class="slide" id="slide-next">
+                        <canvas></canvas>
+                    </div>
+                    <!--<div class="count">
+                        Slide 1 of <span class="total-pages">???</span>
+                    </div>-->
+                </div>
+            </div>
+            <div class="timer">
+                <span id="timer">-</span>
+                <div>
+                    <a href="#" id="toggle-timer">
+                        <i class="fa fa-fw fa-play"></i>
+                    </a>
+                    <a href="#" id="reset-timer">
+                        <i class="fa fa-fw fa-stop"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/js/pdf.js"></script>
+
+        <script src="assets/js/app/utils.js"></script>
+        <script src="assets/js/app/pages.js"></script>
+        <script src="assets/js/app/timer.js"></script>
+        <script src="assets/js/app/pdf.js"></script>
+        <script src="assets/js/app.js"></script>
+    </body>
+</html>

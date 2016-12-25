@@ -1,0 +1,123 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: #111;
+    color: #eee;
+    height: 100%;
+    text-align: center;
+}
+
+h1 i.fa {
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+.hidden {
+    display: none;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.container {
+    width: 35em;
+    margin: auto;
+}
+
+.page {
+    padding: 1px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+input {
+    display: block;
+    width: 100%;
+
+    padding: 0.8em 1em;
+    margin: 1em 0;
+
+    background: transparent;
+    color: #fff;
+    border: 0.2em solid #2060e1;
+    border-radius: 0.3em;
+}
+
+.timer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 0 0 1.5em 0;
+}
+
+.timer span {
+    font-size: 3em;
+    line-height: 1.3em;
+    display: block;
+}
+
+.timer a {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: inherit;
+
+    display: inline-block;
+    margin: 0 0.1em;
+}
+
+.console-container {
+    padding: 1px;
+}
+
+.deck {
+    margin: 2em;
+    position: relative;
+}
+
+.deck .slide {
+    position: absolute;
+    top: 0;
+}
+
+.deck #slide-current {
+    left: 0;
+}
+
+.deck #slide-next {
+    right: 0;
+}
+
+.deck #slide-arrow {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.deck #slide-arrow i.fa {
+    display: inline-block;
+    font-size: 2em;
+    padding: 0 0.6em;
+}
+
+.deck .count {
+    font-size: 1.5em;
+    padding-top: 1em;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
