@@ -54,16 +54,6 @@ window.PDF = {
             canvas.height = height;
             canvas.width = width;
 
-            var height_diff = parent.offsetHeight - height;
-            if (height_diff > 0) {
-                canvas.style.paddingTop = (height_diff / 2 - 1) + "px";
-            }
-
-            var width_diff = parent.offsetWidth - width;
-            if (width_diff > 0) {
-                canvas.style.paddingLeft = (width_diff / 2 - 1) + "px";
-            }
-
             page.render({
                 canvasContext: context,
                 viewport: viewport,

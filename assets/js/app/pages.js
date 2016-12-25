@@ -22,8 +22,6 @@ window.Pages = {
     set: function(from, to) {
         q(from).classList.add("hidden");
         q(to).classList.remove("hidden");
-
-        reflow();
     },
 
     push: function(name) {

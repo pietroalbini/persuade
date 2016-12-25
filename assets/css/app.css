@@ -52,11 +52,6 @@ input {
 }
 
 .timer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
     padding: 0 0 1.5em 0;
 }
 
@@ -75,49 +70,39 @@ input {
     margin: 0 0.1em;
 }
 
-.console-container {
-    padding: 1px;
+.console-layout {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.console-layout .console-top {
+    flex: 0 1 100%;
+    align-self: stretch;
+}
+
+.console-layout .timer {
+    flex: 0 1 auto;
+    align-self: stretch;
 }
 
 .deck {
-    margin: 2em;
-    position: relative;
+    height: 100%;
+    display: flex;
+
+    padding: 2em;
 }
 
 .deck .slide {
-    position: absolute;
-    top: 0;
-}
-
-.deck #slide-current {
-    left: 0;
-}
-
-.deck #slide-next {
-    right: 0;
+    flex: 0 1 100%;
+    align-self: center;
 }
 
 .deck #slide-arrow {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    text-align: center;
-}
+    flex: 0 1 auto;
+    align-self: center;
 
-.deck #slide-arrow i.fa {
-    display: inline-block;
     font-size: 2em;
     padding: 0 0.6em;
-}
-
-.deck .count {
-    font-size: 1.5em;
-    padding-top: 1em;
-
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
