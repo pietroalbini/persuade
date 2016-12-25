@@ -47,6 +47,21 @@ window.Console = {
                 this.to(to);
             }.bind(this));
         }.bind(this));
+
+        // Page up: previous slide
+        Keyboard.bind(33, function() { this.previous() }.bind(this));
+
+        // Left arrow: previous slide
+        Keyboard.bind(37, function() { this.previous() }.bind(this));
+
+        // Space bar: next slide
+        Keyboard.bind(32, function() { this.next() }.bind(this));
+
+        // Page down: next slide
+        Keyboard.bind(34, function() { this.next() }.bind(this));
+
+        // Right arrow: next slide
+        Keyboard.bind(39, function() { this.next() }.bind(this));
     },
 
     render: function() {
@@ -87,4 +102,13 @@ window.Console = {
         this.current = to;
         this.render();
     },
+
+    next: function() {
+        this.to(this.current + 1);
+    },
+
+    previous: function() {
+        this.to(this.current - 1);
+    },
+
 }

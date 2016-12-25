@@ -21,6 +21,7 @@ function load_url(url) {
 
 // Initialization
 
+Keyboard.init();
 Pages.init();
 Timer.init();
 PDF.init();
