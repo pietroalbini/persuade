@@ -27,10 +27,9 @@ window.PDF = {
         }.bind(this), err);
     },
 
-    render: function(page, on) {
+    render: function(page, canvas) {
         this.pdf.getPage(page).then(function(page) {
             // Load the canvas
-            var canvas = q(on);
             var context = canvas.getContext("2d");
 
             var height = page.view[3] - page.view[1];
@@ -38,14 +37,23 @@ window.PDF = {
 
             var parent = canvas.parentNode;
 
+            // This assumes border size is the same on all sides
+            var parent_border = parseInt(
+                window.getComputedStyle(parent)
+                      .getPropertyValue("border-left-width")
+            );
+
+            var parent_height = parent.offsetHeight - parent_border * 2;
+            var parent_width = parent.offsetWidth - parent_border * 2;
+
             var scale;
             if (height > width) {
-                scale = parent.offsetHeight / height;
-                height = parent.offsetHeight;
+                scale = parent_height / height;
+                height = parent_height;
                 width = width * scale;
             } else {
-                scale = parent.offsetWidth / width;
-                width = parent.offsetWidth;
+                scale = parent_width / width;
+                width = parent_width;
                 height = height * scale;
             }
 
