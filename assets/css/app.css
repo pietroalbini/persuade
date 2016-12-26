@@ -93,8 +93,8 @@ input.big {
     color: #cb2626;
 }
 
-.timer a {
-    text-decoration: none;
+.timer i.fa {
+    cursor: pointer;
     font-size: 1.2em;
     color: #555;
 

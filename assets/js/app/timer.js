@@ -7,7 +7,6 @@ window.Timer = {
     content_el: "#timer",
     toggle_el: "#toggle-timer",
     stop_el: "#reset-timer",
-    toggle_icon_el: "#toggle-timer i",
 
     init: function() {
         q(this.toggle_el).addEventListener("click", function(e) {
@@ -62,11 +61,11 @@ window.Timer = {
         this.started = started;
 
         if (this.started === true) {
-            q(this.toggle_icon_el).classList.remove("fa-play");
-            q(this.toggle_icon_el).classList.add("fa-pause");
+            q(this.toggle_el).classList.remove("fa-play");
+            q(this.toggle_el).classList.add("fa-pause");
         } else {
-            q(this.toggle_icon_el).classList.remove("fa-pause");
-            q(this.toggle_icon_el).classList.add("fa-play");
+            q(this.toggle_el).classList.remove("fa-pause");
+            q(this.toggle_el).classList.add("fa-play");
         }
 
         this.refresh();

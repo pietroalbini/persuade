@@ -10,7 +10,7 @@ window.Pages = {
             el.addEventListener("click", function(e) {
                 e.preventDefault();
 
-                var to = el.attributes["href"].value;
+                var to = el.attributes["data-to"].value;
                 if (to === ":back") {
                     this.back();
                 } else {

@@ -37,7 +37,9 @@
                         <input type="text" id="pdf-url" class="big" autofocus
                                placeholder="Enter your slides' URL">
                         <button class="button" type="submit">Let's go!</button>
-                        <a href="#about" class="goto button">What's this?</a>
+                        <button class="button goto" type="button" data-to="#about">
+                            What's this?
+                        </button>
                     </form>
                 </div>
             </div>
@@ -59,7 +61,9 @@
                         care of the rest.
                     </p>
                     <div>
-                        <a href=":back" class="goto button">Go back</a>
+                        <button class="button goto" type="button" data-to=":back">
+                            Go back
+                        </button>
                     </div>
                 </div>
             </div>
@@ -74,7 +78,9 @@
                         you're online, the URL is correct, and the server
                         allows cross-origin requests.
                     </p>
-                    <a href=":back" class="goto button">Go back</a>
+                    <button class="button goto" type="button" data-to=":back">
+                        Go back
+                    </button>
                 </div>
             </div>
         </div>
@@ -88,7 +94,9 @@
                         <input type="text" id="estimated-talk-duration"
                                size="4" maxlength="5" placeholder="30">
                     </div>
-                    <a href="#console" class="goto button">Start the talk!</a>
+                    <button class="button goto" type="button" data-to="#console">
+                        Start the talk!
+                    </button>
                 </div>
             </div>
         </div>
@@ -112,12 +120,8 @@
                     <div class="timer">
                         <span id="timer">-</span>
                         <div>
-                            <a href="#" id="toggle-timer">
-                                <i class="fa fa-fw fa-play"></i>
-                            </a>
-                            <a href="#" id="reset-timer">
-                                <i class="fa fa-fw fa-stop"></i>
-                            </a>
+                            <i class="fa fa-fw fa-play" id="toggle-timer"></i>
+                            <i class="fa fa-fw fa-stop" id="reset-timer"></i>
                         </div>
                     </div>
                 </div>
