@@ -48,4 +48,8 @@ window.Pages = {
         var current = this.stack.pop();
         this.set(current, this.stack[this.stack.length - 1]);
     },
+
+    current: function() {
+        return this.stack[this.stack.length - 1];
+    }
 };

@@ -29,6 +29,10 @@ window.PDF = {
 
     render: function(page, canvas) {
         this.pdf.getPage(page).then(function(page) {
+            // Reset the canvas sizes
+            canvas.height = 0;
+            canvas.width = 0;
+
             // Load the canvas
             var context = canvas.getContext("2d");
 
