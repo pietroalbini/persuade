@@ -50,20 +50,16 @@ window.Console = {
             }.bind(this));
         }.bind(this));
 
-        // Page up: previous slide
+        // Page up, left arrow, up arrow: previous slide
         Keyboard.bind(33, function() { this.previous(true) }.bind(this));
+        Keyboard.bind(37, function() { this.previous(true); return true; }.bind(this));
+        Keyboard.bind(38, function() { this.previous(true); return true; }.bind(this));
 
-        // Left arrow: previous slide
-        Keyboard.bind(37, function() { this.previous(true) }.bind(this));
-
-        // Space bar: next slide
+        // Space bar, page down, right arrow, down arrow: next slide
         Keyboard.bind(32, function() { this.next(true) }.bind(this));
-
-        // Page down: next slide
-        Keyboard.bind(34, function() { this.next(true) }.bind(this));
-
-        // Right arrow: next slide
-        Keyboard.bind(39, function() { this.next(true) }.bind(this));
+        Keyboard.bind(34, function() { this.next(true); return true; }.bind(this));
+        Keyboard.bind(39, function() { this.next(true); return true; }.bind(this));
+        Keyboard.bind(40, function() { this.next(true); return true; }.bind(this));
     },
 
     render: function() {
