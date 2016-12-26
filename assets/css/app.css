@@ -132,6 +132,7 @@ input {
 
 .slide-preview {
     width: 15em;
+    cursor: pointer;
 
     border: 0.2em solid transparent;
     border-radius: 0.2em;
