@@ -10,7 +10,7 @@ function load_url(url) {
     Pages.push("#loading");
 
     PDF.load(url, function() {
-        Pages.replace("#console");
+        Pages.replace("#setup");
     }, function() {
         Pages.replace("#error");
     });
@@ -28,6 +28,12 @@ Pages.push("#intro");
 
 
 Pages.on_show("#console", function() {
+    // Load the esitimated talk duration
+    var estimated = parseInt(q("#estimated-talk-duration").value);
+    if (estimated) {  // Let's pray here nothing gets converted stupidly
+        Timer.set_estimated(estimated);
+    }
+
     Timer.set_status(true);
     Console.init();
 });

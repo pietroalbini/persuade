@@ -34,7 +34,7 @@
                 <h1>Persuade</h1>
                 <div class="container">
                     <form id="pdf-url-form">
-                        <input type="text" id="pdf-url" autofocus
+                        <input type="text" id="pdf-url" class="big" autofocus
                                placeholder="Enter your slides' URL">
                         <button class="button" type="submit">Let's go!</button>
                         <a href="#about" class="goto button">What's this?</a>
@@ -75,6 +75,20 @@
                         allows cross-origin requests.
                     </p>
                     <a href=":back" class="goto button">Go back</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="page hidden" id="setup">
+            <div class="centered">
+                <h1>Setup your talk</h1>
+                <div class="container">
+                    <div class="input-group">
+                        <label>Estimated talk duration (in minutes):</label>
+                        <input type="text" id="estimated-talk-duration"
+                               size="4" maxlength="5" placeholder="30">
+                    </div>
+                    <a href="#console" class="goto button">Start the talk!</a>
                 </div>
             </div>
         </div>

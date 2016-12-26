@@ -1,6 +1,7 @@
 window.Timer = {
 
     count: 0,
+    estimated: null,
     started: false,
 
     content_el: "#timer",
@@ -27,15 +28,34 @@ window.Timer = {
     },
 
     refresh: function() {
-        var hours = Math.floor(this.count / (60 * 60));
-        var minutes = Math.floor((this.count - hours * 60 * 60) / 60);
-        var seconds = this.count % 60;
+        var count = this.count;
+        if (this.estimated !== null) {
+            count = this.estimated * 60 - count;
+            if (count <= 0) {
+                count = 0;
+            }
+        }
+
+        var hours = Math.floor(count / (60 * 60));
+        var minutes = Math.floor((count - hours * 60 * 60) / 60);
+        var seconds = count % 60;
 
         var msg = hours + ":" +
                   (minutes < 10 ? "0"+minutes : minutes) + ":" +
                   (seconds < 10 ? "0"+seconds : seconds);
 
         q(this.content_el).innerHTML = msg;
+
+        if (this.estimated !== null && count === 0 && this.started === true) {
+            q(this.content_el).classList.toggle("out");
+        } else {
+            q(this.content_el).classList.remove("out");
+        }
+    },
+
+    set_estimated: function(estimated) {
+        this.estimated = estimated;
+        this.refresh();
     },
 
     set_status: function(started) {
@@ -48,6 +68,8 @@ window.Timer = {
             q(this.toggle_icon_el).classList.remove("fa-pause");
             q(this.toggle_icon_el).classList.add("fa-play");
         }
+
+        this.refresh();
     },
 
     toggle: function() {
