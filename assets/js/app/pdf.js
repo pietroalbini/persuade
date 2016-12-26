@@ -37,7 +37,7 @@ window.PDF = {
             var context = canvas.getContext("2d");
 
             var height = page.view[3] - page.view[1];
-            var width = page.view[2] - page.view[0];
+            var width = page.view[2] - page.view[0] - 1;
 
             var parent = canvas.parentNode;
 
