@@ -2,6 +2,7 @@ window.Console = {
 
     current: -1,
 
+    sidebar_el: ".console-sidebar",
     slides_list_el: "#slides-list",
     slide_current_el: "#slide-current",
     slide_current_canvas: "#slide-current canvas",
@@ -11,6 +12,7 @@ window.Console = {
     slide_preview_el: ".slide-preview",
 
     slide_preview_class: "slide-preview",
+    active_slide_preview_class: "active",
 
     init: function() {
         var slides = q(this.slides_list_el);
@@ -49,19 +51,19 @@ window.Console = {
         }.bind(this));
 
         // Page up: previous slide
-        Keyboard.bind(33, function() { this.previous() }.bind(this));
+        Keyboard.bind(33, function() { this.previous(true) }.bind(this));
 
         // Left arrow: previous slide
-        Keyboard.bind(37, function() { this.previous() }.bind(this));
+        Keyboard.bind(37, function() { this.previous(true) }.bind(this));
 
         // Space bar: next slide
-        Keyboard.bind(32, function() { this.next() }.bind(this));
+        Keyboard.bind(32, function() { this.next(true) }.bind(this));
 
         // Page down: next slide
-        Keyboard.bind(34, function() { this.next() }.bind(this));
+        Keyboard.bind(34, function() { this.next(true) }.bind(this));
 
         // Right arrow: next slide
-        Keyboard.bind(39, function() { this.next() }.bind(this));
+        Keyboard.bind(39, function() { this.next(true) }.bind(this));
     },
 
     render: function() {
@@ -78,7 +80,7 @@ window.Console = {
         }
     },
 
-    to: function(to) {
+    to: function(to, center_preview) {
         // Don't render the same thing again
         if (to === this.current) {
             return;
@@ -90,25 +92,38 @@ window.Console = {
         }
 
         // Toggle the class in the sidebar
+        var active;
         qe(this.slide_preview_el, function(el) {
             if (el.attributes["data-page"].value == to) {
-                el.classList.add("active");
+                active = el;
+                el.classList.add(this.active_slide_preview_class);
             } else {
-                el.classList.remove("active");
+                el.classList.remove(this.active_slide_preview_class);
             }
-        });
+        }.bind(this));
 
         // Actually switch page
         this.current = to;
         this.render();
+
+        // Move the scroll position
+        if (center_preview === true) {
+            var sidebar = q(this.sidebar_el);
+
+            sidebar.scrollTop = (
+                - sidebar.offsetHeight / 2
+                + active.offsetTop
+                + active.offsetHeight / 2
+            );
+        }
     },
 
-    next: function() {
-        this.to(this.current + 1);
+    next: function(center_preview) {
+        this.to(this.current + 1, center_preview);
     },
 
-    previous: function() {
-        this.to(this.current - 1);
+    previous: function(center_preview) {
+        this.to(this.current - 1, center_preview);
     },
 
 }
