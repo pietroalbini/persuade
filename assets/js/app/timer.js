@@ -28,7 +28,7 @@ window.Timer = {
 
     refresh: function() {
         var hours = Math.floor(this.count / (60 * 60));
-        var minutes = Math.floor(this.count / 60);
+        var minutes = Math.floor((this.count - hours * 60 * 60) / 60);
         var seconds = this.count % 60;
 
         var msg = hours + ":" +
