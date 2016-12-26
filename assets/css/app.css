@@ -72,7 +72,7 @@ input {
 .timer a {
     text-decoration: none;
     font-size: 1.2em;
-    color: inherit;
+    color: #555;
 
     display: inline-block;
     margin: 0 0.1em;
@@ -120,6 +120,7 @@ input {
     flex: 0 1 auto;
     align-self: center;
 
+    color: #555;
     font-size: 2em;
     padding: 0 1em;
 }
@@ -140,4 +141,8 @@ input {
 
 .slide-preview.active {
     border-color: #2060e1;
+}
+
+.slide-preview canvas {
+    opacity: 0.3;
 }
