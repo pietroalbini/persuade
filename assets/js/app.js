@@ -23,8 +23,12 @@ Keyboard.init();
 Pages.init();
 Timer.init();
 PDF.init();
+Popup.init();
 
-Pages.push("#intro");
+
+if (! Popup.is_popup()) {
+    Pages.push("#intro");
+}
 
 
 Pages.on_show("#console", function() {
@@ -34,8 +38,35 @@ Pages.on_show("#console", function() {
         Timer.set_estimated(estimated);
     }
 
-    Timer.set_status(true);
     Console.init();
+    Timer.set_status(true);
+});
+
+Pages.on_hide("#console", function() {
+    Timer.set_status(false);
+})
+
+
+Pages.on_show("#popup-slideshow", function() {
+    document.documentElement.requestFullscreen();
+});
+
+
+// Actions
+
+qe(".open-popup", function(el) {
+    el.addEventListener("click", function(e) {
+        e.preventDefault();
+        Popup.open();
+    });
+});
+
+
+qe(".close-window", function(el) {
+    el.addEventListener("click", function(e) {
+        e.preventDefault();
+        window.close();
+    });
 });
 
 

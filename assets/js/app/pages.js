@@ -2,6 +2,7 @@ window.Pages = {
 
     stack: ["#loading"],
     show_callbacks: {},
+    hide_callbacks: {},
 
     goto_el: ".goto",
 
@@ -21,6 +22,7 @@ window.Pages = {
     },
 
     set: function(from, to) {
+        // Call show callbacks
         if (this.show_callbacks.hasOwnProperty(to)) {
             for (var i = 0; i < this.show_callbacks[to].length; i++) {
                 this.show_callbacks[to][i]();
@@ -29,6 +31,13 @@ window.Pages = {
 
         q(from).classList.add("hidden");
         q(to).classList.remove("hidden");
+
+        // Call hide callbacks
+        if (this.hide_callbacks.hasOwnProperty(from)) {
+            for (var i = 0; i < this.hide_callbacks[from].length; i++) {
+                this.hide_callbacks[from][i]();
+            }
+        }
     },
 
     push: function(name) {
@@ -66,5 +75,13 @@ window.Pages = {
         }
 
         this.show_callbacks[page].push(callback);
+    },
+
+    on_hide: function(page, callback) {
+        if (this.hide_callbacks.hasOwnProperty(page) === false) {
+            this.hide_callbacks[page] = [];
+        }
+
+        this.hide_callbacks[page].push(callback);
     },
 };

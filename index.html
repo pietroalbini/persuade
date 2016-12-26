@@ -94,9 +94,12 @@
                         <input type="text" id="estimated-talk-duration"
                                size="4" maxlength="5" placeholder="30">
                     </div>
-                    <button class="button goto" type="button" data-to="#console">
+                    <button class="button goto open-popup" type="button" data-to="#console">
                         Start the talk!
                     </button>
+                    <p>
+                        This will open a popup.
+                    </p>
                 </div>
             </div>
         </div>
@@ -132,6 +135,51 @@
             </div>
         </div>
 
+        <div class="page hidden" id="closed-popup">
+            <div class="centered">
+                <h1>Popup closed</h1>
+                <p>
+                    If you want to resume with your presentation, open it
+                    again.
+                </p>
+                <button class="button goto open-popup" type="button" data-to=":back">
+                    Open the popup again
+                </button>
+            </div>
+        </div>
+
+        <div class="page hidden" id="popup-intro">
+            <div class="centered">
+                <div class="container">
+                    <p>
+                        Please put this window in the projector's monitor, then
+                        go fullscreen.
+                    </p>
+                    <button type="button" class="button goto" data-to="#popup-slideshow">
+                        Go fullscreen
+                    </button>
+                    <button type="button" class="button close-window">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="page hidden" id="popup-slideshow">
+            <div class="centered">
+                <canvas id="popup-current"></canvas>
+            </div>
+        </div>
+
+        <div class="page hidden" id="popup-error">
+            <div class="centered">
+                <p>An error occured while fetching the slides.</p>
+                <button type="button" class="button close-window">
+                    Close
+                </button>
+            </div>
+        </div>
+
         <script src="assets/js/pdf.js"></script>
 
         <script src="assets/js/app/utils.js"></script>
@@ -139,6 +187,7 @@
         <script src="assets/js/app/pages.js"></script>
         <script src="assets/js/app/timer.js"></script>
         <script src="assets/js/app/pdf.js"></script>
+        <script src="assets/js/app/popup.js"></script>
         <script src="assets/js/app/console.js"></script>
         <script src="assets/js/app.js"></script>
     </body>

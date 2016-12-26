@@ -1,6 +1,7 @@
 window.PDF = {
 
     pdf: null,
+    url: null,
 
     worker_src: "assets/js/pdf.worker.js",
 
@@ -23,6 +24,8 @@ window.PDF = {
 
         PDFJS.getDocument(url).then(function(pdf) {
             this.pdf = pdf;
+            this.url = url;
+
             ok();
         }.bind(this), err);
     },

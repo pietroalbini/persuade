@@ -1,6 +1,7 @@
 window.Console = {
 
     current: -1,
+    initialized: false,
 
     sidebar_el: ".console-sidebar",
     slides_list_el: "#slides-list",
@@ -15,6 +16,12 @@ window.Console = {
     active_slide_preview_class: "active",
 
     init: function() {
+        // Don't initialize multiple times
+        if (this.initialized === true) {
+            return;
+        }
+        this.initialized = true;
+
         var slides = q(this.slides_list_el);
 
         // Remove all the slides from the list
@@ -101,6 +108,7 @@ window.Console = {
         // Actually switch page
         this.current = to;
         this.render();
+        Popup.refresh();
 
         // Move the scroll position
         if (center_preview === true) {
