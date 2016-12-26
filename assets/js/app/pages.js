@@ -1,6 +1,7 @@
 window.Pages = {
 
     stack: ["#loading"],
+    show_callbacks: {},
 
     goto_el: ".goto",
 
@@ -20,6 +21,12 @@ window.Pages = {
     },
 
     set: function(from, to) {
+        if (this.show_callbacks.hasOwnProperty(to)) {
+            for (var i = 0; i < this.show_callbacks[to].length; i++) {
+                this.show_callbacks[to][i]();
+            }
+        }
+
         q(from).classList.add("hidden");
         q(to).classList.remove("hidden");
     },
@@ -51,5 +58,13 @@ window.Pages = {
 
     current: function() {
         return this.stack[this.stack.length - 1];
-    }
+    },
+
+    on_show: function(page, callback) {
+        if (this.show_callbacks.hasOwnProperty(page) === false) {
+            this.show_callbacks[page] = [];
+        }
+
+        this.show_callbacks[page].push(callback);
+    },
 };

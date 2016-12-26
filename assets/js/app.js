@@ -10,8 +10,6 @@ function load_url(url) {
     Pages.push("#loading");
 
     PDF.load(url, function() {
-        Timer.toggle();
-        Console.init();
         Pages.replace("#console");
     }, function() {
         Pages.replace("#error");
@@ -27,6 +25,12 @@ Timer.init();
 PDF.init();
 
 Pages.push("#intro");
+
+
+Pages.on_show("#console", function() {
+    Timer.set_status(true);
+    Console.init();
+});
 
 
 // Correctly handle screen resizes
