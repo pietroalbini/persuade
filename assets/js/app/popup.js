@@ -1,6 +1,3 @@
-var POPUP_HASH = "#popup";
-
-
 var OutsidePopup = {
 
     popup: null,
@@ -15,8 +12,7 @@ var OutsidePopup = {
     },
 
     open: function() {
-        this.popup = window.open(
-            location.href.split("#")[0] + POPUP_HASH, document.title,
+        this.popup = window.open(location.href, document.title,
             'height=600,width=800'
         );
     },
@@ -96,7 +92,7 @@ var InsidePopup = {
 
 
 // Use the correct thing for Popup
-if (location.hash === POPUP_HASH) {
+if (window.opener !== null) {
     window.Popup = InsidePopup;
 } else {
     window.Popup = OutsidePopup;
