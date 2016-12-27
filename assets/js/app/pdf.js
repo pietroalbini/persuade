@@ -39,8 +39,8 @@ window.PDF = {
             // Load the canvas
             var context = canvas.getContext("2d");
 
-            var height = page.view[3] - page.view[1];
-            var width = page.view[2] - page.view[0] - 1;
+            var pdf_height = page.view[3] - page.view[1];
+            var pdf_width = page.view[2] - page.view[0] - 1;
 
             var parent = canvas.parentNode;
 
@@ -50,18 +50,40 @@ window.PDF = {
                       .getPropertyValue("border-left-width")
             );
 
+            var document_height = document.documentElement.clientHeight;
+            var document_width = document.documentElement.clientWidth;
+
             var parent_height = parent.offsetHeight - parent_border * 2;
+            if (parent_height === 0 || parent_height > document_height) {
+                parent_height = document_height;
+            }
+
             var parent_width = parent.offsetWidth - parent_border * 2;
+            if (parent_width === 0 || parent_width > document_width) {
+                parent_width = document_width;
+            }
 
             var scale;
-            if (height > width) {
-                scale = parent_height / height;
+            if (pdf_height > pdf_width) {
+                scale = parent_height / pdf_height;
                 height = parent_height;
-                width = width * scale;
+                width = pdf_width * scale;
+
+                if (width > parent_width) {
+                    scale = parent_width / pdf_width;
+                    width = parent_width;
+                    height = pdf_height * scale;
+                }
             } else {
-                scale = parent_width / width;
+                scale = parent_width / pdf_width;
                 width = parent_width;
-                height = height * scale;
+                height = pdf_height * scale;
+
+                if (height > parent_height) {
+                    scale = parent_height / pdf_height;
+                    height = parent_height;
+                    width = pdf_width * scale;
+                }
             }
 
             var viewport = page.getViewport(scale);
