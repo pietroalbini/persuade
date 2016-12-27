@@ -63,9 +63,13 @@ input.big {
     width: 100%;
 }
 
+.form {
+    margin: 1.5em 0;
+}
+
 .input-group {
     display: flex;
-    margin: 1.5em;
+    margin: 0.75em 0;
 
     text-align: left;
 }
@@ -75,9 +79,33 @@ input.big {
     padding: 0.6em 0;
 }
 
-.input-group input {
+.input-group input[type="text"] {
     flex: 1 1 auto;
     margin: 0;
+}
+
+.input-group input[type="checkbox"] {
+    display: none;
+}
+
+.input-group input[type="checkbox"] + label span {
+    display: inline-block;
+
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 0.5em;
+
+    color: transparent;
+    text-align: center;
+    line-height: 1.2em;
+
+    border: 0.2em solid #2060e1;
+    border-radius: 0.2em;
+}
+
+.input-group input[type="checkbox"]:checked + label span {
+    background: #2060e1;
+    color: #fff;
 }
 
 .timer {

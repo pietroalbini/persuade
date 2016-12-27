@@ -38,7 +38,9 @@ Pages.on_show("#console", function() {
         Timer.set_estimated(estimated);
     }
 
-    Console.init();
+    var block_f5 = q("#block-f5").checked;
+
+    Console.init(block_f5);
     Timer.set_status(true);
 });
 

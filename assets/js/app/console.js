@@ -11,11 +11,12 @@ window.Console = {
     slide_next_canvas: "#slide-next canvas",
     slide_arrow_el: "#slide-arrow",
     slide_preview_el: ".slide-preview",
+    page_el: "#console",
 
     slide_preview_class: "slide-preview",
     active_slide_preview_class: "active",
 
-    init: function() {
+    init: function(should_block_f5) {
         // Don't initialize multiple times
         if (this.initialized === true) {
             return;
@@ -67,6 +68,14 @@ window.Console = {
         Keyboard.bind(34, function() { this.next(true); return true; }.bind(this));
         Keyboard.bind(39, function() { this.next(true); return true; }.bind(this));
         Keyboard.bind(40, function() { this.next(true); return true; }.bind(this));
+
+        if (should_block_f5) {
+            Keyboard.bind(116, function() {
+                if (Pages.current() === this.page_el) {
+                    return true;
+                }
+            }.bind(this));
+        }
     },
 
     render: function() {
