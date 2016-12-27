@@ -88,7 +88,7 @@ var InsidePopup = {
 
         PDF.render(this.main.Console.current, q(this.canvas_el));
 
-        if (current !== 0) {
+        if (current !== 1) {
             PDF.render(current - 1, q(this.prerender_previous_el))
         }
 

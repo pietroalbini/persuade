@@ -178,4 +178,5 @@ input.big {
     top: 0;
     z-index: -100;
     visibility: hidden;
+    margin: -1px;
 }
