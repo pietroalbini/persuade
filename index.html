@@ -11,6 +11,9 @@
         <link rel="stylesheet" href="assets/css/font-awesome.css">
     </head>
     <body>
+
+        <!-- Utility pages -->
+
         <div class="page" id="loading">
             <div class="centered">
                 <h1><i class="fa fa-cog fa-spin"></i></h1>
@@ -30,11 +33,13 @@
             </div>
         </div>
 
+        <!-- Static intro pages -->
+
         <div class="page hidden" id="intro">
             <div class="centered">
                 <h1>Persuade</h1>
                 <p>
-                    Simple presenter view for your PDFs, in your web
+                    Simple presenter console for your PDFs, in your web
                     browser.
                 </p>
                 <div class="buttons-menu">
@@ -48,15 +53,64 @@
                         About Persuade
                     </button>
                 </div>
+                <ul class="inline-list footer">
+                    <li>
+                        A project by
+                        <a href="https://www.pietroalbini.org">
+                            Pietro Albini
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/pietroalbini/persuade">
+                            Source code
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+
+        <div class="page hidden" id="about">
+            <div class="centered">
+                <h1>About Persuade</h1>
+                <div class="container">
+                    <p>
+                        Persuade is a simple presenter console you can use
+                        when you give talks. It allows you to have the same
+                        experience office suites provides, but with just a PDF
+                        file.
+                    </p>
+                    <p>
+                        I made this because when I give talks all I take with
+                        me is the PDF file with all the slides (for
+                        compatibility purposes), and I was missing the
+                        presenter console office suites have. Having all of
+                        this reachable with just a browser is invaluable.
+                    </p>
+                    <p>
+                        By the way, all the source code is
+                        <a href="https://github.com/pietroalbini/persuade">
+                        publicly released</a>.
+                    </p>
+                    <div class="buttons-menu">
+                        <a class="button" href="https://github.com/pietroalbini/persuade/issues/new">
+                            Report an issue
+                        </a>
+                        <button class="button goto" type="button" data-to=":back">
+                            Go back
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Local files loading -->
 
         <div class="page hidden" id="load-local">
             <div class="centered">
                 <h1>Load slides from this device</h1>
                 <div class="container">
                     <p>
-                        Please drag and drop your PDF file with the slides in
+                        Drag and drop your PDF file with the slides in
                         the box below, or manually choose one from the device's
                         storage.
                     </p>
@@ -86,21 +140,34 @@
                         There was an error while loading your slides. Please
                         make sure you selected a valid PDF file.
                     </p>
-                    <button type="button" class="button goto" data-to=":back">
-                        Go back
-                    </button>
+                    <div class="buttons-menu">
+                        <button type="button" class="button goto" data-to=":back">
+                            Go back
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- URLs loading -->
 
         <div class="page hidden" id="load-url">
             <div class="centered">
                 <h1>Load slides from the web</h1>
                 <div class="container">
+                    <p>
+                        Enter the URL of your PDF file in the box below. Please
+                        make sure the server allows cross-origin request
+                        though!
+                    </p>
                     <form id="pdf-url-form">
-                        <input type="text" id="pdf-url" class="big" autofocus
-                               placeholder="Enter your slides' URL">
-                        <button class="button" type="submit">Let's go!</button>
+                        <div class="form">
+                            <input type="text" id="pdf-url" class="big" autofocus
+                                   placeholder="https://www.example.com/slides.pdf">
+                        </div>
+                        <button class="button" type="submit">
+                            Fetch the slides
+                        </button>
                         <button class="button goto" type="button" data-to=":back">
                             Go back
                         </button>
@@ -109,31 +176,7 @@
             </div>
         </div>
 
-        <div class="page hidden" id="about">
-            <div class="centered">
-                <h1>About Persuade</h1>
-                <div class="container">
-                    <p>
-                        Persuade is a lightweight, simple slides deck you can
-                        use while giving talks. It allows you to have the same
-                        experience office suites provides, but with just a PDF
-                        file.
-                    </p>
-                    <p>
-                        All you need to do is entering the URL to the PDF file
-                        in the text input on the home page! Persuade will take
-                        care of the rest.
-                    </p>
-                    <div>
-                        <button class="button goto" type="button" data-to=":back">
-                            Go back
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="page hidden" id="error">
+        <div class="page hidden" id="load-url-error">
             <div class="centered">
                 <h1>Can't load your slides</h1>
                 <div class="container">
@@ -142,17 +185,25 @@
                         you're online, the URL is correct, and the server
                         allows cross-origin requests.
                     </p>
-                    <button class="button goto" type="button" data-to=":back">
-                        Go back
-                    </button>
+                    <div class="buttons-menu">
+                        <button type="button" class="button goto" data-to=":back">
+                            Go back
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- Presenter console -->
+
         <div class="page hidden" id="setup">
             <div class="centered">
-                <h1>Setup your talk</h1>
+                <h1>Configure Persuade</h1>
                 <div class="container">
+                    <p>
+                        You can setup a few things before starting up with your
+                        talk!
+                    </p>
                     <div class="form">
                         <div class="input-group">
                             <label>Estimated talk duration (in minutes):</label>
@@ -170,12 +221,14 @@
                             </div>
                         </div>
                     </div>
-                    <button class="button goto open-popup" type="button" data-to="#console">
-                        Start the talk!
-                    </button>
-                    <p>
-                        This will open a popup.
-                    </p>
+                    <div class="buttons-menu">
+                        <button class="button goto open-popup" type="button" data-to="#console">
+                            Start the talk!
+                        </button>
+                        <p>
+                            This will open a popup, don't close it!
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -213,16 +266,23 @@
 
         <div class="page hidden" id="closed-popup">
             <div class="centered">
-                <h1>Popup closed</h1>
-                <p>
-                    If you want to resume with your presentation, open it
-                    again.
-                </p>
-                <button class="button goto open-popup" type="button" data-to=":back">
-                    Open the popup again
-                </button>
+                <h1>Thank you for using Persuade!</h1>
+                <div class="container">
+                    <p>
+                        I hope everything went well! If you closed the popup by
+                        mistake, don't worry: you can resume the current talk
+                        where you left it.
+                    </p>
+                    <div class="buttons-menu">
+                        <button class="button goto open-popup" type="button" data-to=":back">
+                            Resume the current talk
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Popup -->
 
         <div class="page hidden" id="popup-intro">
             <div class="centered">
@@ -235,7 +295,7 @@
                         Go fullscreen
                     </button>
                     <button type="button" class="button close-window">
-                        Close
+                        Close window
                     </button>
                 </div>
             </div>
@@ -254,9 +314,11 @@
         <div class="page hidden" id="popup-error">
             <div class="centered">
                 <p>An error occured while fetching the slides.</p>
-                <button type="button" class="button close-window">
-                    Close
-                </button>
+                <div class="buttons-menu">
+                    <button type="button" class="button close-window">
+                        Close window
+                    </button>
+                </div>
             </div>
         </div>
 

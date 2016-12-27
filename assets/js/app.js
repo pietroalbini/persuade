@@ -12,7 +12,7 @@ function load_url(url) {
     PDF.load(url, function() {
         Pages.replace("#setup");
     }, function() {
-        Pages.replace("#error");
+        Pages.replace("#load-url-error");
     });
 }
 
