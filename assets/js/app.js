@@ -17,6 +17,23 @@ function load_url(url) {
 }
 
 
+// Load a file
+function load_file(file) {
+    Pages.push("#loading");
+
+    // Read the file
+    var reader = new FileReader();
+    reader.onload = function() {
+        PDF.load(new Uint8Array(reader.result), function() {
+            Pages.replace("#setup");
+        }, function() {
+            Pages.replace("#load-local-error");
+        });
+    };
+    reader.readAsArrayBuffer(file);
+}
+
+
 // Initialization
 
 Keyboard.init();
@@ -50,6 +67,24 @@ Pages.on_hide("#console", function() {
 
 
 // Actions
+
+q("#click-local-file").addEventListener("click", function() {
+    q("#local-file").click();
+});
+
+q("#local-file").addEventListener("change", function(e) {
+    var files = e.target.files;
+
+    var found = false;
+    for (var i = 0; i < files.length; i++) {
+        if (files[i].type === "application/pdf") {
+            load_file(files[i]);
+            return;
+        }
+    }
+
+    Pages.push("#load-local-error");
+});
 
 qe(".open-popup", function(el) {
     el.addEventListener("click", function(e) {

@@ -76,7 +76,7 @@ var InsidePopup = {
         }.bind(this));
 
         // Load the PDF
-        PDF.load(this.main.PDF.url, function() {
+        PDF.load(this.main.PDF.data, function() {
             Pages.replace("#popup-intro");
         }, function() {
             Pages.replace("#popup-error");

@@ -29,16 +29,71 @@
                 </p>
             </div>
         </div>
+
         <div class="page hidden" id="intro">
             <div class="centered">
                 <h1>Persuade</h1>
+                <p>
+                    Simple presenter view for your PDFs, in your web
+                    browser.
+                </p>
+                <div class="buttons-menu">
+                    <button class="button goto" type="button" data-to="#load-local">
+                        Load slides from this device
+                    </button>
+                    <button class="button goto" type="button" data-to="#load-url">
+                        Load slides from the web
+                    </button>
+                    <button class="button goto" type="button" data-to="#about">
+                        About Persuade
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="page hidden" id="load-local">
+            <div class="centered">
+                <h1>Load slides from this device</h1>
+                <div class="container">
+                    <p>
+                        Slides will <b>not</b> be uploaded to a remote server.
+                    </p>
+                    <input type="file" class="hidden" id="local-file">
+                    <button type="button" class="button" id="click-local-file">
+                        Choose the file
+                    </button>
+                    <button type="button" class="button goto" data-to=":back">
+                        Go back
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="page hidden" id="load-local-error">
+            <div class="centered">
+                <h1>Can't load your slides</h1>
+                <div class="container">
+                    <p>
+                        There was an error while loading your slides. Please
+                        make sure you selected a valid PDF file.
+                    </p>
+                    <button type="button" class="button goto" data-to=":back">
+                        Go back
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="page hidden" id="load-url">
+            <div class="centered">
+                <h1>Load slides from the web</h1>
                 <div class="container">
                     <form id="pdf-url-form">
                         <input type="text" id="pdf-url" class="big" autofocus
                                placeholder="Enter your slides' URL">
                         <button class="button" type="submit">Let's go!</button>
-                        <button class="button goto" type="button" data-to="#about">
-                            What's this?
+                        <button class="button goto" type="button" data-to=":back">
+                            Go back
                         </button>
                     </form>
                 </div>

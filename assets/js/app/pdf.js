@@ -1,7 +1,7 @@
 window.PDF = {
 
     pdf: null,
-    url: null,
+    data: null,
 
     worker_src: "assets/js/pdf.worker.js",
 
@@ -9,22 +9,24 @@ window.PDF = {
         PDFJS.workerSrc = this.worker_src;
     },
 
-    load: function(url, ok, err) {
-        // Check if the schema is correct
-        var allowed_schemas = ["http", "https"];
-        var success = false;
-        for (var i = 0; i < allowed_schemas.length; i++) {
-            if (url.indexOf(allowed_schemas[i]) === 0) {
-                success = true;
+    load: function(data, ok, err) {
+        // Only for URLs, check if the schema is correct
+        if (typeof data === typeof "") {
+            var allowed_schemas = ["http", "https"];
+            var success = false;
+            for (var i = 0; i < allowed_schemas.length; i++) {
+                if (data.indexOf(allowed_schemas[i]) === 0) {
+                    success = true;
+                }
+            }
+            if (success === false) {
+                err();
             }
         }
-        if (success === false) {
-            err();
-        }
 
-        PDFJS.getDocument(url).then(function(pdf) {
+        PDFJS.getDocument(data).then(function(pdf) {
             this.pdf = pdf;
-            this.url = url;
+            this.data = data;
 
             ok();
         }.bind(this), err);
