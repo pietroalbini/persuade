@@ -172,3 +172,10 @@ input.big {
 .slide-preview canvas {
     opacity: 0.3;
 }
+
+.popup-prerender {
+    position: absolute;
+    top: 0;
+    z-index: -100;
+    visibility: hidden;
+}

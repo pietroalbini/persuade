@@ -39,6 +39,8 @@ var InsidePopup = {
     main: null,
 
     canvas_el: "#popup-current",
+    prerender_previous_el: "#popup-prerender-previous canvas",
+    prerender_next_el: "#popup-prerender-next canvas",
 
     init: function() {
         this.main = window.opener;
@@ -81,7 +83,18 @@ var InsidePopup = {
             return;
         }
 
+        var current = this.main.Console.current;
+        var total = PDF.total_pages();
+
         PDF.render(this.main.Console.current, q(this.canvas_el));
+
+        if (current !== 0) {
+            PDF.render(current - 1, q(this.prerender_previous_el))
+        }
+
+        if (current < total) {
+            PDF.render(current + 1, q(this.prerender_next_el));
+        }
     },
 
     is_popup: function() {
