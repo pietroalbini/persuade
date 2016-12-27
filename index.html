@@ -56,15 +56,24 @@
                 <h1>Load slides from this device</h1>
                 <div class="container">
                     <p>
-                        Slides will <b>not</b> be uploaded to a remote server.
+                        Please drag and drop your PDF file with the slides in
+                        the box below, or manually choose one from the device's
+                        storage.
                     </p>
+                    <div id="drop-zone">
+                        Drop your slides here!
+                    </div>
                     <input type="file" class="hidden" id="local-file">
                     <button type="button" class="button" id="click-local-file">
-                        Choose the file
+                        Manually choose a file
                     </button>
                     <button type="button" class="button goto" data-to=":back">
                         Go back
                     </button>
+                    <p>
+                        Don't worry, slides will <b>not</b> be uploaded to a
+                        remote server.
+                    </p>
                 </div>
             </div>
         </div>

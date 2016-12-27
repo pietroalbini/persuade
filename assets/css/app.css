@@ -108,6 +108,18 @@ input.big {
     color: #fff;
 }
 
+#drop-zone {
+    border: 0.2em dashed #555;
+    color: #888;
+    line-height: 5em;
+    margin: 1.5em 0;
+}
+
+#drop-zone.hover {
+    border-color: #aaa;
+    color: #ddd;
+}
+
 .buttons-menu {
     width: 20em;
     margin: 1.5em auto;

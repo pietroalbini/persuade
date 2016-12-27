@@ -33,6 +33,18 @@ function load_file(file) {
     reader.readAsArrayBuffer(file);
 }
 
+function load_files(files) {
+    var found = false;
+    for (var i = 0; i < files.length; i++) {
+        if (files[i].type === "application/pdf") {
+            load_file(files[i]);
+            return;
+        }
+    }
+
+    Pages.push("#load-local-error");
+}
+
 
 // Initialization
 
@@ -66,7 +78,7 @@ Pages.on_hide("#console", function() {
 })
 
 
-// Actions
+// Local files loading
 
 q("#click-local-file").addEventListener("click", function() {
     q("#local-file").click();
@@ -74,17 +86,42 @@ q("#click-local-file").addEventListener("click", function() {
 
 q("#local-file").addEventListener("change", function(e) {
     var files = e.target.files;
-
-    var found = false;
-    for (var i = 0; i < files.length; i++) {
-        if (files[i].type === "application/pdf") {
-            load_file(files[i]);
-            return;
-        }
-    }
-
-    Pages.push("#load-local-error");
+    load_files(files);
 });
+
+q("#drop-zone").addEventListener("dragover", function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    e.dataTransfer.dropEffect = "copy";
+    q("#drop-zone").classList.add("hover");
+});
+
+q("#drop-zone").addEventListener("dragleave", function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    q("#drop-zone").classList.remove("hover");
+});
+
+q("#drop-zone").addEventListener("drop", function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    var files = e.dataTransfer.files;
+    load_files(files);
+})
+
+window.addEventListener("dragover", function(e) {
+    e.preventDefault();
+
+    e.dataTransfer.dropEffect = "none";
+});
+
+window.addEventListener("drop", function(e) {
+    e.preventDefault();
+});
+
 
 qe(".open-popup", function(el) {
     el.addEventListener("click", function(e) {
