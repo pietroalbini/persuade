@@ -69,12 +69,30 @@ var InsidePopup = {
         Keyboard.bind(39, function() { this.main.Console.next(true); return true; }.bind(this));
         Keyboard.bind(40, function() { this.main.Console.next(true); return true; }.bind(this));
 
+        // F5: toggle fullscreen
+        Keyboard.bind(116, function() {
+            this.toggle_fullscreen();
+            return true;
+        }.bind(this));
+
         // Load the PDF
         PDF.load(this.main.PDF.url, function() {
             Pages.replace("#popup-intro");
         }, function() {
             Pages.replace("#popup-error");
         });
+
+        Pages.on_show("#popup-slideshow", function() {
+            document.documentElement.requestFullscreen();
+        }.bind(this));
+    },
+
+    toggle_fullscreen: function() {
+        if (document.fullscreenElement === null) {
+            Pages.push("#popup-slideshow");
+        } else {
+            document.exitFullscreen();
+        }
     },
 
     refresh: function() {

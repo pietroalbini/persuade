@@ -47,11 +47,6 @@ Pages.on_hide("#console", function() {
 })
 
 
-Pages.on_show("#popup-slideshow", function() {
-    document.documentElement.requestFullscreen();
-});
-
-
 // Actions
 
 qe(".open-popup", function(el) {
