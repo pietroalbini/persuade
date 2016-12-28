@@ -3,6 +3,7 @@ window.Timer = {
     count: 0,
     estimated: null,
     started: false,
+    paused: false,
 
     content_el: "#timer",
     toggle_el: "#toggle-timer",
@@ -71,6 +72,14 @@ window.Timer = {
         this.refresh();
     },
 
+    set_paused: function(paused) {
+        this.paused = paused;
+    },
+
+    is_paused: function() {
+        return this.paused === true;
+    },
+
     toggle: function() {
         this.set_status(! this.started);
     },
@@ -82,7 +91,7 @@ window.Timer = {
     },
 
     interval: function() {
-        if (this.started === true) {
+        if (this.started === true && this.paused === false) {
             this.count += 1;
             this.refresh();
         }

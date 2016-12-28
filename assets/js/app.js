@@ -68,13 +68,19 @@ Pages.on_show("#console", function() {
     }
 
     var block_f5 = q("#block-f5").checked;
+    var auto_start_timer = q("#auto-start-timer").checked;
 
     Console.init(block_f5);
-    Timer.set_status(true);
+
+    if (Timer.is_paused()) {
+        Timer.set_paused(false);
+    } else {
+        Timer.set_status(auto_start_timer);
+    }
 });
 
 Pages.on_hide("#console", function() {
-    Timer.set_status(false);
+    Timer.set_paused(true);
 })
 
 
