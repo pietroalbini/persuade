@@ -3,7 +3,7 @@ window.PDF = {
     pdf: null,
     data: null,
 
-    worker_src: "assets/js/pdf.worker.js",
+    worker_src: "assets/vendor/pdf-js/pdf.worker.min.js",
 
     init: function() {
         PDFJS.workerSrc = this.worker_src;
