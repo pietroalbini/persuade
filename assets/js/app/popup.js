@@ -59,41 +59,19 @@ var InsidePopup = {
         }.bind(this));
 
         // Page up, left arrow, up arrow: previous slide
-        Keyboard.bind("#popup-slideshow", 33, function() {
-            this.main.Console.previous(true);
-        }.bind(this));
-        Keyboard.bind("#popup-slideshow", 37, function() {
-            this.main.Console.previous(true);
-            return true;
-        }.bind(this));
-        Keyboard.bind("#popup-slideshow", 38, function() {
+        Keyboard.bind(["#popup-slideshow"], [33, 37, 38], function() {
             this.main.Console.previous(true);
             return true;
         }.bind(this));
 
         // Space bar, page down, right arrow, down arrow: next slide
-        Keyboard.bind("#popup-slideshow", 32, function() {
-            this.main.Console.next(true);
-        }.bind(this));
-        Keyboard.bind("#popup-slideshow", 34, function() {
-            this.main.Console.next(true);
-            return true;
-        }.bind(this));
-        Keyboard.bind("#popup-slideshow", 39, function() {
-            this.main.Console.next(true);
-            return true;
-        }.bind(this));
-        Keyboard.bind("#popup-slideshow", 40, function() {
+        Keyboard.bind(["#popup-slideshow"], [32, 34, 39, 40], function() {
             this.main.Console.next(true);
             return true;
         }.bind(this));
 
         // F5: toggle fullscreen
-        Keyboard.bind("#popup-slideshow", 116, function() {
-            this.toggle_fullscreen();
-            return true;
-        }.bind(this));
-        Keyboard.bind("#popup-intro", 116, function() {
+        Keyboard.bind(["#popup-slideshow", "#popup-intro"], [116], function() {
             this.toggle_fullscreen();
             return true;
         }.bind(this));

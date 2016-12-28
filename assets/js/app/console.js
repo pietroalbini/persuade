@@ -59,37 +59,19 @@ window.Console = {
         }.bind(this));
 
         // Page up, left arrow, up arrow: previous slide
-        Keyboard.bind("#console", 33, function() {
-            this.previous(true);
-        }.bind(this));
-        Keyboard.bind("#console", 37, function() {
-            this.previous(true);
-            return true;
-        }.bind(this));
-        Keyboard.bind("#console", 38, function() {
+        Keyboard.bind(["#console"], [33, 37, 38], function() {
             this.previous(true);
             return true;
         }.bind(this));
 
         // Space bar, page down, right arrow, down arrow: next slide
-        Keyboard.bind("#console", 32, function() {
-            this.next(true);
-        }.bind(this));
-        Keyboard.bind("#console", 34, function() {
-            this.next(true);
-            return true;
-        }.bind(this));
-        Keyboard.bind("#console", 39, function() {
-            this.next(true);
-            return true;
-        }.bind(this));
-        Keyboard.bind("#console", 40, function() {
+        Keyboard.bind(["#console"], [32, 34, 39, 40], function() {
             this.next(true);
             return true;
         }.bind(this));
 
         if (should_block_f5) {
-            Keyboard.bind("#console", 116, function() {
+            Keyboard.bind(["#console"], [116], function() {
                 return true;
             }.bind(this));
         }

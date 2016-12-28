@@ -30,16 +30,24 @@ window.Keyboard = {
         }
     },
 
-    bind: function(page, key, callback) {
-        if (this.binds.hasOwnProperty(page) === false) {
-            this.binds[page] = {};
-        }
+    bind: function(pages, keys, callback) {
+        for (var pi = 0; pi < pages.length; pi++) {
+            var page = pages[pi];
 
-        if (this.binds[page].hasOwnProperty(key) === false) {
-            this.binds[page][key + ""] = [];
-        }
+            if (this.binds.hasOwnProperty(page) === false) {
+                this.binds[page] = {};
+            }
 
-        this.binds[page][key + ""].push(callback);
+            for (var ki = 0; ki < keys.length; ki++) {
+                var key = keys[ki];
+
+                if (this.binds[page].hasOwnProperty(key) === false) {
+                    this.binds[page][key + ""] = [];
+                }
+
+                this.binds[page][key + ""].push(callback);
+            }
+        }
     },
 
 };
