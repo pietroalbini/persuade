@@ -10,13 +10,18 @@ window.Keyboard = {
 
     process_keypress: function(e) {
         var key = e.which || e.keyCode + "";
+        var page = Pages.current();
 
-        if (this.binds.hasOwnProperty(key) === false) {
+        if (this.binds.hasOwnProperty(page) === false) {
             return;
         }
 
-        for (var i = 0; i < this.binds[key].length; i++) {
-            var result = this.binds[key][i]();
+        if (this.binds[page].hasOwnProperty(key) === false) {
+            return;
+        }
+
+        for (var i = 0; i < this.binds[page][key].length; i++) {
+            var result = this.binds[page][key][i]();
 
             if (result === true) {
                 e.preventDefault();
@@ -25,12 +30,16 @@ window.Keyboard = {
         }
     },
 
-    bind: function(key, callback) {
-        if (this.binds.hasOwnProperty(key) === false) {
-            this.binds[key + ""] = [];
+    bind: function(page, key, callback) {
+        if (this.binds.hasOwnProperty(page) === false) {
+            this.binds[page] = {};
         }
 
-        this.binds[key + ""].push(callback);
+        if (this.binds[page].hasOwnProperty(key) === false) {
+            this.binds[page][key + ""] = [];
+        }
+
+        this.binds[page][key + ""].push(callback);
     },
 
 };

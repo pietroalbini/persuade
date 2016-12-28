@@ -59,21 +59,38 @@ window.Console = {
         }.bind(this));
 
         // Page up, left arrow, up arrow: previous slide
-        Keyboard.bind(33, function() { this.previous(true) }.bind(this));
-        Keyboard.bind(37, function() { this.previous(true); return true; }.bind(this));
-        Keyboard.bind(38, function() { this.previous(true); return true; }.bind(this));
+        Keyboard.bind("#console", 33, function() {
+            this.previous(true);
+        }.bind(this));
+        Keyboard.bind("#console", 37, function() {
+            this.previous(true);
+            return true;
+        }.bind(this));
+        Keyboard.bind("#console", 38, function() {
+            this.previous(true);
+            return true;
+        }.bind(this));
 
         // Space bar, page down, right arrow, down arrow: next slide
-        Keyboard.bind(32, function() { this.next(true) }.bind(this));
-        Keyboard.bind(34, function() { this.next(true); return true; }.bind(this));
-        Keyboard.bind(39, function() { this.next(true); return true; }.bind(this));
-        Keyboard.bind(40, function() { this.next(true); return true; }.bind(this));
+        Keyboard.bind("#console", 32, function() {
+            this.next(true);
+        }.bind(this));
+        Keyboard.bind("#console", 34, function() {
+            this.next(true);
+            return true;
+        }.bind(this));
+        Keyboard.bind("#console", 39, function() {
+            this.next(true);
+            return true;
+        }.bind(this));
+        Keyboard.bind("#console", 40, function() {
+            this.next(true);
+            return true;
+        }.bind(this));
 
         if (should_block_f5) {
-            Keyboard.bind(116, function() {
-                if (Pages.current() === this.page_el) {
-                    return true;
-                }
+            Keyboard.bind("#console", 116, function() {
+                return true;
             }.bind(this));
         }
     },
