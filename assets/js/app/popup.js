@@ -39,6 +39,7 @@ var InsidePopup = {
     main: null,
 
     canvas_el: "#popup-current",
+    slideshow_page_el: "#popup-slideshow",
     prerender_previous_el: "#popup-prerender-previous canvas",
     prerender_next_el: "#popup-prerender-next canvas",
 
@@ -76,6 +77,20 @@ var InsidePopup = {
             return true;
         }.bind(this));
 
+        // Dot and B: black/unblack the screen
+        Keyboard.bind(["#popup-slideshow"], [66, 190], function() {
+            q(this.slideshow_page_el).classList.remove("white");
+            q(this.canvas_el).classList.toggle("black");
+            return true;
+        }.bind(this));
+
+        // Comma and W: white/unwhite the screen
+        Keyboard.bind(["#popup-slideshow"], [87, 188], function() {
+            q(this.canvas_el).classList.remove("black");
+            q(this.slideshow_page_el).classList.toggle("white");
+            return true;
+        }.bind(this));
+
         // Load the PDF
         PDF.load(this.main.PDF.data, function() {
             Pages.replace("#popup-intro");
@@ -90,6 +105,10 @@ var InsidePopup = {
 
     toggle_fullscreen: function() {
         if (document.fullscreenElement === null) {
+            // Remove black/white mode
+            q(this.canvas_el).classList.remove("black");
+            q(this.slideshow_page_el).classList.remove("white");
+
             Pages.push("#popup-slideshow");
         } else {
             document.exitFullscreen();

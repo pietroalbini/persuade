@@ -246,3 +246,11 @@ input.big {
     visibility: hidden;
     margin: -1px;
 }
+
+#popup-current.black, #popup-slideshow.white canvas {
+    visibility: hidden;
+}
+
+#popup-slideshow.white {
+    background: #fff;
+}
