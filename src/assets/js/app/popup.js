@@ -61,6 +61,7 @@ var OutsidePopup = {
 var InsidePopup = {
 
     main: null,
+    allow_black_white: false,
 
     canvas_el: "#popup-current",
     slideshow_page_el: "#popup-slideshow",
@@ -69,6 +70,8 @@ var InsidePopup = {
 
     init: function() {
         this.main = window.opener;
+
+        this.allow_black_white = this.main.Console.allow_black_white;
 
         // Go back when exiting from full screen
         document.addEventListener("fullscreenchange", function() {
@@ -138,11 +141,19 @@ var InsidePopup = {
     },
 
     toggle_black: function() {
+        if (this.allow_black_white === false) {
+            return;
+        }
+
         q(this.slideshow_page_el).classList.remove("white");
         q(this.canvas_el).classList.toggle("black");
     },
 
     toggle_white: function() {
+        if (this.allow_black_white === false) {
+            return;
+        }
+
         q(this.canvas_el).classList.remove("black");
         q(this.slideshow_page_el).classList.toggle("white");
     },

@@ -85,8 +85,9 @@ Pages.on_show("#console", function() {
 
     var block_f5 = q("#block-f5").checked;
     var auto_start_timer = q("#auto-start-timer").checked;
+    var allow_black_white = q("#allow-black-white").checked;
 
-    Console.init(block_f5);
+    Console.init(block_f5, allow_black_white);
 
     if (Timer.is_paused()) {
         Timer.set_paused(false);

@@ -18,6 +18,7 @@ window.Console = {
 
     current: -1,
     initialized: false,
+    allow_black_white: false,
 
     sidebar_el: ".console-sidebar",
     slides_list_el: "#slides-list",
@@ -32,12 +33,14 @@ window.Console = {
     slide_preview_class: "slide-preview",
     active_slide_preview_class: "active",
 
-    init: function(should_block_f5) {
+    init: function(should_block_f5, allow_black_white) {
         // Don't initialize multiple times
         if (this.initialized === true) {
             return;
         }
         this.initialized = true;
+
+        this.allow_black_white = allow_black_white;
 
         var slides = q(this.slides_list_el);
 
