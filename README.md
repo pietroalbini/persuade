@@ -1,6 +1,6 @@
 ## Persuade
 
-**Simple presenter console for your PDFs, in your web browser.**
+*Simple presenter console for your PDFs, in your web browser.*
 
 Persuade allows you to get the same experience of Impress/PowerPoint presenter
 console in every web browser: you just need the PDFs of the slides, and you're
@@ -11,6 +11,12 @@ any web server running, so you can even download the source and use it offline
 by opening the `index.html`!
 
 The project is released under the GNU GPLv3+ license.
+
+### Try it
+
+| Branch | URL                                    |
+| :----: | -------------------------------------- |
+| master | https://persuade.pietroalbini.org/app/ |
 
 ### Features
 
@@ -33,8 +39,8 @@ In the future, I may add the following features:
 If you want to contribute on those, please comment on the issue before creating
 a pull request!
 
-[gh1-1]: https://github.com/pietroalbini/persuade/issues/1
-[gh1-2]: https://github.com/pietroalbini/persuade/issues/2
+[gh-1]: https://github.com/pietroalbini/persuade/issues/1
+[gh-2]: https://github.com/pietroalbini/persuade/issues/2
 
 ### Remotes support
 
