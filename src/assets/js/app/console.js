@@ -86,6 +86,18 @@ window.Console = {
             return true;
         }.bind(this));
 
+        // Dot and B: black/unblack the screen
+        Keyboard.bind(["#console"], [66, 190], function() {
+            Popup.toggle_black();
+            return true;
+        }.bind(this));
+
+        // Comma and W: white/unwhite the screen
+        Keyboard.bind(["#console"], [87, 188], function() {
+            Popup.toggle_white();
+            return true;
+        }.bind(this));
+
         if (should_block_f5) {
             Keyboard.bind(["#console"], [116], function() {
                 return true;

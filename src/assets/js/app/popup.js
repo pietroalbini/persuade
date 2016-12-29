@@ -39,6 +39,14 @@ var OutsidePopup = {
         }
     },
 
+    toggle_black: function() {
+        this.popup.Popup.toggle_black();
+    },
+
+    toggle_white: function() {
+        this.popup.Popup.toggle_white();
+    },
+
     on_close: function() {
         Pages.push("#closed-popup");
     },
@@ -95,15 +103,13 @@ var InsidePopup = {
 
         // Dot and B: black/unblack the screen
         Keyboard.bind(["#popup-slideshow"], [66, 190], function() {
-            q(this.slideshow_page_el).classList.remove("white");
-            q(this.canvas_el).classList.toggle("black");
+            this.toggle_black();
             return true;
         }.bind(this));
 
         // Comma and W: white/unwhite the screen
         Keyboard.bind(["#popup-slideshow"], [87, 188], function() {
-            q(this.canvas_el).classList.remove("black");
-            q(this.slideshow_page_el).classList.toggle("white");
+            this.toggle_white();
             return true;
         }.bind(this));
 
@@ -129,6 +135,16 @@ var InsidePopup = {
         } else {
             document.exitFullscreen();
         }
+    },
+
+    toggle_black: function() {
+        q(this.slideshow_page_el).classList.remove("white");
+        q(this.canvas_el).classList.toggle("black");
+    },
+
+    toggle_white: function() {
+        q(this.canvas_el).classList.remove("black");
+        q(this.slideshow_page_el).classList.toggle("white");
     },
 
     refresh: function() {
