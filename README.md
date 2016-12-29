@@ -6,10 +6,6 @@ Persuade allows you to get the same experience of Impress/PowerPoint presenter
 console in every web browser: you just need the PDFs of the slides, and you're
 good to go!
 
-Also, Persuade is just a bunch of HTML, CSS and JS files: it doesn't require
-any web server running, so you can even download the source and use it offline
-by opening the `index.html`!
-
 The project is released under the GNU GPLv3+ license.
 
 ### Try it
@@ -50,6 +46,22 @@ been tested with the following hardware:
 * LG Wireless Presenter R400
 
 If you have any other hardware, and you tested it works, send a pull request!
+
+### Building the minified version
+
+While you can directly use the source code in the `src/` directory, it's
+advised to generate a minified build to optimize the size of the project. You
+need to have [Python 3][py3] and [Virtualenv][venv] installed, then you can
+run `make` to generate the build:
+
+```
+$ make
+```
+
+The minified app will be located in `build/app/`.
+
+[py3]: https://www.python.org/
+[virtualenv]: https://virtualenv.pypa.io/en/stable/
 
 ### Third party dependencies
 

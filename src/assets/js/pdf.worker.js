@@ -1,0 +1,1 @@
+../vendor/pdf-js/pdf.worker.min.js

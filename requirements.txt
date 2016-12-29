@@ -1,0 +1,3 @@
+django-htmlmin
+rcssmin
+rjsmin
