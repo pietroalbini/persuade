@@ -52,16 +52,16 @@ If you have any other hardware, and you tested it works, send a pull request!
 While you can directly use the source code in the `src/` directory, it's
 advised to generate a minified build to optimize the size of the project. You
 need to have [Python 3][py3] and [Virtualenv][venv] installed, then you can
-run `make` to generate the build:
+run to generate the build:
 
 ```
-$ make
+$ make -C src
 ```
 
 The minified app will be located in `build/app/`.
 
 [py3]: https://www.python.org/
-[virtualenv]: https://virtualenv.pypa.io/en/stable/
+[venv]: https://virtualenv.pypa.io/en/stable/
 
 ### Third party dependencies
 

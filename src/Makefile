@@ -17,10 +17,12 @@
 #  Build configuration  #
 #########################
 
-DIR_SOURCE = src
-DIR_BUILD = build
+DIR_SOURCE = .
+DIR_BUILD = ../build
 DIR_DEST = $(DIR_BUILD)/app
 DIR_ENV = $(DIR_BUILD)/env
+
+REQUIREMENTS = ../requirements.txt
 
 BIN_PYTHON = python3
 BIN_VIRTUALENV = virtualenv
@@ -57,7 +59,7 @@ CSS := $(patsubst %,$(DIR_SOURCE)/assets/%,$(CSS))
 .PHONY: all
 all: build
 
-$(DIR_ENV): requirements.txt
+$(DIR_ENV): $(REQUIREMENTS)
 	@mkdir -p $(dir $@)
 	@$(BIN_VIRTUALENV) -p $(BIN_PYTHON) $@
 	@$@/bin/pip install -r $<

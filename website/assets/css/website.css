@@ -1,0 +1,88 @@
+/* Copyright (C) 2016  Pietro Albini <pietro@pietroalbini.org>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+body {
+    background: #111;
+    color: #eee;
+
+    padding: 0 1em;
+    text-align: center;
+}
+
+h1 small {
+    display: inline-block;
+    margin-left: 0.3em;
+
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+.try .button-large {
+    margin: 1em 0 0.5em 0;
+}
+
+.try .inline-list {
+    color: #555;
+}
+
+.light {
+    margin: 1.5em -1em;
+
+    padding: 1px 1em;
+    background: #fff;
+    color: #111;
+}
+
+.container {
+    padding: 1em 0;
+    margin: 1em auto;
+    max-width: 40em;
+}
+
+.container h2:first-child {
+    margin-top: 0;
+}
+
+.features {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.feature {
+    flex: 0 1 18em;
+    margin: 1em auto;
+}
+
+.feature i.fa {
+    display: block;
+    margin-bottom: 0.3em;
+
+    color: #555;
+    font-size: 3em;
+}
+
+.privacy {
+    text-align: left;
+}
+
+.footer {
+    color: #555;
+}
+
+.footer a {
+    color: #888;
+}
