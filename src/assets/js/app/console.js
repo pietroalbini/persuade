@@ -1,4 +1,4 @@
-/* Copyright (C) 2016  Pietro Albini <pietro@pietroalbini.org>
+/* Copyright (C) 2016-2017  Pietro Albini <pietro@pietroalbini.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@ window.Console = {
     allow_black_white: false,
 
     sidebar_el: ".console-sidebar",
+    progress_el: "#slides-progress div",
     slides_list_el: "#slides-list",
     slide_current_el: "#slide-current",
     slide_current_canvas: "#slide-current canvas",
@@ -128,8 +129,10 @@ window.Console = {
             return;
         }
 
+        var total = PDF.total_pages();
+
         // Don't overflow
-        if (to < 1 || to > PDF.total_pages()) {
+        if (to < 1 || to > total) {
             return;
         }
 
@@ -159,6 +162,11 @@ window.Console = {
                 + active.offsetHeight / 2
             );
         }
+
+        // Update the progress bar
+        var progress = q(this.progress_el);
+        var max_width = progress.parentNode.offsetWidth;
+        progress.style.width = to * max_width / total + "px";
     },
 
     next: function(center_preview) {

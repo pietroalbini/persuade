@@ -211,6 +211,28 @@ input.big {
     flex-direction: column;
 }
 
+.console-layout .console-body .console-status {
+    flex: 0 1 auto;
+    padding: 1em 0;
+}
+
+.console-layout .console-body .console-status #slides-progress {
+    margin: auto;
+    width: 15em;
+    background: #555;
+
+    border-radius: 0.2em;
+}
+
+.console-layout .console-body .console-status #slides-progress div {
+    height: 0.4em;
+    width: 0;
+    transition: 0.3s width ease-out;
+
+    border-radius: 0.2em;
+    background: #2060e1;
+}
+
 .console-layout .console-body .console-top {
     flex: 0 1 100%;
 }
