@@ -1,4 +1,4 @@
-/* Copyright (C) 2016  Pietro Albini <pietro@pietroalbini.org>
+/* Copyright (C) 2016-2017  Pietro Albini <pietro@pietroalbini.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,6 +38,9 @@ window.Pages = {
     },
 
     set: function(from, to) {
+        q(to).classList.add("vis-hidden");
+        q(to).classList.remove("hidden");
+
         // Call show callbacks
         if (this.show_callbacks.hasOwnProperty(to)) {
             for (var i = 0; i < this.show_callbacks[to].length; i++) {
@@ -46,7 +49,7 @@ window.Pages = {
         }
 
         q(from).classList.add("hidden");
-        q(to).classList.remove("hidden");
+        q(to).classList.remove("vis-hidden");
 
         // Call hide callbacks
         if (this.hide_callbacks.hasOwnProperty(from)) {
