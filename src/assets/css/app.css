@@ -213,10 +213,12 @@ input.big {
 
 .console-layout .console-body .console-status {
     flex: 0 1 auto;
-    padding: 1em 0;
+    display: flex;
+    padding: 1em 2em 0 2em;
 }
 
 .console-layout .console-body .console-status #slides-progress {
+    flex: 0 100% auto;
     margin: auto;
     width: 15em;
     background: #555;
@@ -231,6 +233,16 @@ input.big {
 
     border-radius: 0.2em;
     background: #2060e1;
+}
+
+.console-layout .console-body .console-status .right-controls {
+    flex: 0 1 auto;
+}
+
+.console-layout .console-body .console-status .right-controls i.fa {
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #555;
 }
 
 .console-layout .console-body .console-top {

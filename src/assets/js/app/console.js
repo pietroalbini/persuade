@@ -22,6 +22,7 @@ window.Console = {
 
     sidebar_el: ".console-sidebar",
     progress_el: "#slides-progress div",
+    toggle_sidebar_el: ".toggle-sidebar",
     slides_list_el: "#slides-list",
     slide_current_el: "#slide-current",
     slide_current_canvas: "#slide-current canvas",
@@ -107,6 +108,17 @@ window.Console = {
                 return true;
             }.bind(this));
         }
+
+        qe(this.toggle_sidebar_el, function(el) {
+            el.addEventListener("click", function() {
+                qe(this.toggle_sidebar_el, function(el2) {
+                    el2.classList.toggle("hidden");
+                });
+
+                q(this.sidebar_el).classList.toggle("hidden");
+                this.render();
+            }.bind(this));
+        }.bind(this));
     },
 
     render: function() {
