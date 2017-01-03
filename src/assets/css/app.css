@@ -169,6 +169,24 @@ input.big {
     margin: 0.8em 0;
 }
 
+#slides-progress {
+    margin: 0 auto 1.25em auto;
+    width: 15em;
+    background: #333;
+
+    border-radius: 0.2em;
+}
+
+#slides-progress div {
+    height: 0.4em;
+    width: 0;
+    transition: 0.3s width ease-out;
+
+    border-radius: 0.2em;
+    background: #2060e1;
+}
+
+
 .timer {
     padding: 0 0 1.5em 0;
 }
@@ -213,40 +231,18 @@ input.big {
 
 .console-layout .console-body .console-status {
     flex: 0 1 auto;
-    display: flex;
-    padding: 1em 2em 0 2em;
+    padding: 1em 1.25em 0 1.25em;
+    text-align: right;
 }
 
-.console-layout .console-body .console-status #slides-progress {
-    flex: 0 100% auto;
-    margin: auto;
-    width: 15em;
-    background: #555;
-
-    border-radius: 0.2em;
-}
-
-.console-layout .console-body .console-status #slides-progress div {
-    height: 0.4em;
-    width: 0;
-    transition: 0.3s width ease-out;
-
-    border-radius: 0.2em;
-    background: #2060e1;
-}
-
-.console-layout .console-body .console-status .right-controls {
-    flex: 0 1 auto;
-}
-
-.console-layout .console-body .console-status .right-controls > * {
+.console-layout .console-body .console-status > * {
     color: #555;
     cursor: pointer;
 
     transition: 0.2s color ease-out;
 }
 
-.console-layout .console-body .console-status .right-controls > *:hover {
+.console-layout .console-body .console-status > *:hover {
     color: #888;
 }
 
