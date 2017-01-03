@@ -259,13 +259,17 @@ input.big {
     display: flex;
 }
 
+.console-layout .console-body .console-top .deck canvas {
+    margin: auto;
+}
+
 .console-layout .console-body .console-top .deck #slide-current {
-    flex: 0 1 100%;
+    flex: 0 1 60%;
     align-self: center;
 }
 
 .console-layout .console-body .console-top .deck #slide-arrow {
-    flex: 0 1 auto;
+    flex: 1 0 auto;
     align-self: center;
 
     color: #555;
@@ -274,7 +278,7 @@ input.big {
 }
 
 .console-layout .console-body .console-top .deck #slide-next {
-    flex: 0 1 60%;
+    flex: 0 1 40%;
     align-self: center;
 }
 

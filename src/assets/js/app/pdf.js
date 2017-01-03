@@ -61,19 +61,30 @@ window.PDF = {
             var pdf_width = page.view[2] - page.view[0] - 1;
 
             var parent = canvas.parentNode;
+            var grandparent = parent.parentNode;
 
             // This assumes border size is the same on all sides
             var parent_border = parseInt(
                 window.getComputedStyle(parent)
                       .getPropertyValue("border-left-width")
             );
+            var grandparent_padding = parseInt(
+                window.getComputedStyle(parent.parentNode)
+                      .getPropertyValue("padding-left")
+            );
 
             var document_height = document.documentElement.clientHeight;
             var document_width = document.documentElement.clientWidth;
 
+            // This is calculated to avoid strange behavior with flexboxes
+            var grandparent_height = grandparent.offsetHeight - grandparent_padding * 2;
+            if (grandparent_height === 0 || grandparent_height > document_height) {
+                grandparent_height = document_height;
+            }
+
             var parent_height = parent.offsetHeight - parent_border * 2;
-            if (parent_height === 0 || parent_height > document_height) {
-                parent_height = document_height;
+            if (parent_height === 0 || parent_height > grandparent_height) {
+                parent_height = grandparent_height;
             }
 
             var parent_width = parent.offsetWidth - parent_border * 2;
