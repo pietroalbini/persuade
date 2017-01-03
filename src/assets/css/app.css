@@ -239,10 +239,15 @@ input.big {
     flex: 0 1 auto;
 }
 
-.console-layout .console-body .console-status .right-controls i.fa {
-    cursor: pointer;
-    font-size: 1.2em;
+.console-layout .console-body .console-status .right-controls > * {
     color: #555;
+    cursor: pointer;
+
+    transition: 0.2s color ease-out;
+}
+
+.console-layout .console-body .console-status .right-controls > *:hover {
+    color: #888;
 }
 
 .console-layout .console-body .console-top {
