@@ -74,6 +74,15 @@ canvas {
     margin-top: 0.4em;
 }
 
+.page#too-small .centered {
+    padding: 1em;
+}
+
+.page#too-small i.fa {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
 .footer {
     color: #555;
 }
