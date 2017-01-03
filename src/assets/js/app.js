@@ -1,4 +1,4 @@
-/* Copyright (C) 2016  Pietro Albini <pietro@pietroalbini.org>
+/* Copyright (C) 2016-2017  Pietro Albini <pietro@pietroalbini.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +23,11 @@ q("#pdf-url-form").addEventListener("submit", function(e) {
 
 // Load an URL
 function load_url(url) {
+    // Add http:// before the URL if it doesn't have a protocol
+    if (url.indexOf("://") === -1) {
+        url = "http://" + url;
+    }
+
     Pages.push("#loading");
 
     PDF.load(url, function() {
