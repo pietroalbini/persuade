@@ -1,4 +1,4 @@
-/* Copyright (C) 2016  Pietro Albini <pietro@pietroalbini.org>
+/* Copyright (C) 2016-2017  Pietro Albini <pietro@pietroalbini.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,12 +22,29 @@ body {
     text-align: center;
 }
 
+.inline-list li {
+    padding: 0.2em 0.6em;
+}
+
+.inline-list li:first-child {
+    /* Override Snowflake */
+    padding-left: 0.6em;
+}
+
+h1 {
+    margin: 0.8em 0;
+}
+
 h1 small {
     display: inline-block;
-    margin-left: 0.3em;
+    margin: 0 0.3em;
 
     font-size: 0.8em;
     color: #aaa;
+}
+
+.intro h1 {
+    margin: 0.8em 0 0.3em 0;
 }
 
 .try .button-large {
@@ -75,8 +92,23 @@ h1 small {
     font-size: 3em;
 }
 
+.more {
+    display: block;
+    font-size: 1.2em;
+    margin-top: -0.8em;
+    padding: 1.2em 0;
+}
+
 .privacy {
     text-align: left;
+}
+
+.privacy .tldr {
+    color: #888;
+}
+
+.privacy .tldr h2 {
+    text-align: center;
 }
 
 .footer {
